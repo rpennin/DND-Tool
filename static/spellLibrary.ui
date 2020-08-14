@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>spellLibrary</class>
+ <widget class="QDialog" name="spellLibrary">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>740</width>
+    <height>632</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Spell Library</string>
+  </property>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>241</width>
+     <height>611</height>
+    </rect>
+   </property>
+   <property name="alternatingRowColors">
+    <bool>true</bool>
+   </property>
+   <property name="sortingEnabled">
+    <bool>true</bool>
+   </property>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>PK</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Spell Name</string>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+   </column>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>280</y>
+     <width>268</width>
+     <height>341</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="9" column="0">
+     <widget class="QLabel" name="durationLabel">
+      <property name="text">
+       <string>Duration</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1" colspan="5">
+     <widget class="QLineEdit" name="rangeLineEdit"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="rangeLabel">
+      <property name="text">
+       <string>Range</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0" colspan="2">
+     <widget class="QLabel" name="componentsLabel">
+      <property name="text">
+       <string>Components</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0" colspan="6" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="materialLabel">
+      <property name="text">
+       <string>Material</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QCheckBox" name="vCheckBox">
+      <property name="text">
+       <string>V</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="2">
+     <widget class="QCheckBox" name="concentrationCheckBox">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0" colspan="2">
+     <widget class="QLabel" name="concentrationLabel">
+      <property name="text">
+       <string>Concentration</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0" colspan="6">
+     <widget class="QTextEdit" name="materialTextEdit"/>
+    </item>
+    <item row="4" column="4">
+     <widget class="QCheckBox" name="mCheckBox">
+      <property name="text">
+       <string>M</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="schoolLabel">
+      <property name="text">
+       <string>School</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="2">
+     <widget class="QCheckBox" name="ritualCheckBox">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="3">
+     <widget class="QCheckBox" name="sCheckBox">
+      <property name="text">
+       <string>S</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="1" colspan="5">
+     <widget class="QLineEdit" name="durationLineEdit"/>
+    </item>
+    <item row="2" column="0" colspan="2" alignment="Qt::AlignLeft">
+     <widget class="QLabel" name="castingTimeLabel">
+      <property name="text">
+       <string>Casting Time</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2" colspan="4">
+     <widget class="QLineEdit" name="castingTimeLineEdit"/>
+    </item>
+    <item row="0" column="1" colspan="5">
+     <widget class="QComboBox" name="levelComboBox">
+      <item>
+       <property name="text">
+        <string>Cantrip</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>4</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>5</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>6</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>7</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>8</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>9</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="7" column="0" colspan="2">
+     <widget class="QLabel" name="ritualLabel">
+      <property name="text">
+       <string>Ritual</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1" colspan="5">
+     <widget class="QComboBox" name="schoolComboBox">
+      <item>
+       <property name="text">
+        <string>Conjuration</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Evocation</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Necromancy</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Transmutation</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Abjuration</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Divination</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Enchantment</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Illusion</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="levelLabel">
+      <property name="text">
+       <string>Level</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="classGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>280</y>
+     <width>191</width>
+     <height>201</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Class</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
+     <widget class="QCheckBox" name="bardCheckBox">
+      <property name="text">
+       <string>Bard</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QCheckBox" name="clericCheckBox">
+      <property name="text">
+       <string>Cleric</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QCheckBox" name="druidCheckBox">
+      <property name="text">
+       <string>Druid</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QCheckBox" name="paladinCheckBox">
+      <property name="text">
+       <string>Paladin</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QCheckBox" name="rangerCheckBox">
+      <property name="text">
+       <string>Ranger</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QCheckBox" name="sorcererCheckBox">
+      <property name="text">
+       <string>Sorcerer</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QCheckBox" name="warlockCheckBox">
+      <property name="text">
+       <string>Warlock</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QCheckBox" name="wizardCheckBox">
+      <property name="text">
+       <string>Wizard</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>490</y>
+     <width>171</width>
+     <height>134</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_4">
+    <item row="0" column="0">
+     <widget class="QPushButton" name="newPushButton">
+      <property name="text">
+       <string>New</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="savePushButton">
+      <property name="text">
+       <string>Save</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QPushButton" name="saveNewPushButton">
+      <property name="text">
+       <string>Save as New</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="deletePushButton">
+      <property name="text">
+       <string>Delete</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>50</y>
+     <width>471</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="descriptionLabel">
+      <property name="text">
+       <string>Description</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QTextEdit" name="descriptionTextEdit"/>
+    </item>
+    <item row="2" column="0" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="higherLevelLabel">
+      <property name="text">
+       <string>At Higher Level</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QTextEdit" name="higherLevelTextEdit">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>60</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>20</y>
+     <width>471</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QLabel" name="nameLabel">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Name</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="nameLineEdit"/>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>newPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>spellLibrary</receiver>
+   <slot>newSpell()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>680</x>
+     <y>261</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>741</x>
+     <y>461</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>savePushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>spellLibrary</receiver>
+   <slot>saveSpell()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>680</x>
+     <y>295</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>739</x>
+     <y>514</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>saveNewPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>spellLibrary</receiver>
+   <slot>saveAsNewSpell()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>687</x>
+     <y>329</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>738</x>
+     <y>555</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>deletePushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>spellLibrary</receiver>
+   <slot>deleteSpell()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>688</x>
+     <y>363</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>736</x>
+     <y>584</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tableWidget</sender>
+   <signal>cellClicked(int,int)</signal>
+   <receiver>spellLibrary</receiver>
+   <slot>updateFromClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>171</x>
+     <y>6</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>newSpell()</slot>
+  <slot>saveSpell()</slot>
+  <slot>saveAsNewSpell()</slot>
+  <slot>deleteSpell()</slot>
+  <slot>updateFromClick()</slot>
+ </slots>
+</ui>

@@ -18,6 +18,9 @@ class Ui_npcSpell(object):
         self.spellLibraryTableWidget = QtWidgets.QTableWidget(npcSpell)
         self.spellLibraryTableWidget.setGeometry(QtCore.QRect(10, 40, 381, 541))
         self.spellLibraryTableWidget.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContentsOnFirstShow)
+        self.spellLibraryTableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.spellLibraryTableWidget.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.spellLibraryTableWidget.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.spellLibraryTableWidget.setObjectName("spellLibraryTableWidget")
         self.spellLibraryTableWidget.setColumnCount(3)
         self.spellLibraryTableWidget.setRowCount(0)
@@ -32,6 +35,9 @@ class Ui_npcSpell(object):
         self.npcSpellTableWidget = QtWidgets.QTableWidget(npcSpell)
         self.npcSpellTableWidget.setGeometry(QtCore.QRect(480, 40, 240, 541))
         self.npcSpellTableWidget.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContentsOnFirstShow)
+        self.npcSpellTableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.npcSpellTableWidget.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.npcSpellTableWidget.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.npcSpellTableWidget.setObjectName("npcSpellTableWidget")
         self.npcSpellTableWidget.setColumnCount(1)
         self.npcSpellTableWidget.setRowCount(0)
@@ -63,6 +69,8 @@ class Ui_npcSpell(object):
         self.npcSpellsLabel.setObjectName("npcSpellsLabel")
 
         self.retranslateUi(npcSpell)
+        self.addSpellPushButton.clicked.connect(npcSpell.addSpell)
+        self.removeSpellPushButton.clicked.connect(npcSpell.removeSpell)
         QtCore.QMetaObject.connectSlotsByName(npcSpell)
 
     def retranslateUi(self, npcSpell):

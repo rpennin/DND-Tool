@@ -340,24 +340,46 @@ def insert_spell(values):
 def get_spells_by_npc(npc_id):
     npc_id = str(npc_id)
     spellList = []
-    rows = []
+    npc_spell_ids = []
+    spell_library_ids = []
     conn = create_connection()
     cur = conn.cursor()
-    cur.execute("SELECT spell_library_id FROM npc_spell_list WHERE npc_id=?", (npc_id,))
-    unformatted_rows = cur.fetchall()[0]
+    cur.execute("SELECT id, spell_library_id FROM npc_spell_list WHERE npc_id=?", (npc_id,))
+    unformatted_rows = cur.fetchall()
     for row in unformatted_rows:
-        rows.append(str(row))
-    print(row)
-    print(rows)
-    if (len(rows) > 0):
-        sql = f"SELECT * FROM spell_library where id IN ({','.join(['?']*len(rows))})"
-        cur.execute(sql, (rows))
-        rows = cur.fetchall()
+        spell_library_ids.append(str(row[1]))
+    for row in unformatted_rows:
+        npc_spell_ids.append(str(row[0]))
+    if (len(spell_library_ids) > 0):
+        sql = f"SELECT * FROM spell_library where id IN ({','.join(['?']*len(spell_library_ids))})"
+        cur.execute(sql, (spell_library_ids))
+        spell_library_ids = cur.fetchall()
         conn.close()
-        for row in rows:
+        i = 0
+        for row in spell_library_ids:
             spell = Spell(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11],row[12],row[13])
-            spellList.append(spell)
-            print(row)
+            spellList.append([npc_spell_ids[i],spell])
+            i += 1
         return spellList
     else:
         return []
+    
+def insert_npc_spell(values):
+    try:
+        conn = create_connection()
+        cur = conn.cursor()
+        sql = '''INSERT INTO npc_spell_list(spell_library_id, npc_id)
+        VALUES(?,?)'''
+        cur.execute(sql, values)
+        conn.commit()
+        conn.close()
+    except:
+        pass
+
+def delete_npc_spell(pk):
+    pk = str(pk)
+    conn = create_connection()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM npc_spell_list WHERE id=?", (pk,))
+    conn.commit()
+    conn.close()

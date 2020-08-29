@@ -47,7 +47,6 @@ class SpellLibrary(QtWidgets.QWidget, Ui_spellLibrary):
         self.wizardCheckBox.setChecked(False)
         self.currentPk = None
 
-    #Fix this save function
     def saveSpell(self):
         if self.currentPk:
             name = self.nameLineEdit.text()

@@ -10,12 +10,12 @@ class NpcSpell(QtWidgets.QDialog, Ui_npcSpell):
         self.currentNpcSpellKey = None
         self.spellLibraryTableWidget.setColumnHidden(0, True)
         self.npcSpellTableWidget.setColumnHidden(0, True)
-        self.populateLibraryTable()
         self.populateNpcSpellTable()
+        self.populateLibraryTable()
     
     def populateLibraryTable(self):
         librarySpellList = select_all_library_spells()
-        self.spellLibraryTableWidget.setRowCount = 0
+        self.spellLibraryTableWidget.setRowCount(0)
         self.spellLibraryTableWidget.setColumnHidden(0, False)
         for spell in librarySpellList:
             numRows = self.spellLibraryTableWidget.rowCount()
@@ -28,35 +28,34 @@ class NpcSpell(QtWidgets.QDialog, Ui_npcSpell):
 
     def populateNpcSpellTable(self):
         spellList = get_spells_by_npc(self.parent().currentPk)
-        self.npcSpellTableWidget.setRowCount = 0
+        self.npcSpellTableWidget.setRowCount(0)
         self.npcSpellTableWidget.setColumnHidden(0, False)
         for spell in spellList:
-            print(spell.pk)
-            print(spell.name)
             numRows = self.npcSpellTableWidget.rowCount()
             self.npcSpellTableWidget.insertRow(numRows)
-            self.npcSpellTableWidget.setItem(numRows, 0, QtWidgets.QTableWidgetItem(str(spell.pk)))
-            self.npcSpellTableWidget.setItem(numRows, 1, QtWidgets.QTableWidgetItem(str(spell.name)))
+            self.npcSpellTableWidget.setItem(numRows, 0, QtWidgets.QTableWidgetItem(str(spell[0])))
+            self.npcSpellTableWidget.setItem(numRows, 1, QtWidgets.QTableWidgetItem(str(spell[1].name)))
         self.npcSpellTableWidget.setColumnHidden(0, True)
 
     def addSpell(self):
-        pass
+        if self.currentLibraryKey:
+            insert_npc_spell((self.currentLibraryKey, self.parent().currentPk))
+            self.populateNpcSpellTable()
 
     def removeSpell(self):
-        pass
+        if self.currentNpcSpellKey:
+            delete_npc_spell(self.currentNpcSpellKey)
+            self.populateNpcSpellTable()
 
     def updateLibraryChoice(self, row, column):
-        pass
-        # self.libraryTableWidget.setColumnHidden(0, False)
-        # item = self.libraryTableWidget.item(row, 0)
-        # self.currentPk = item.text()
-        # self.libraryTableWidget.setColumnHidden(0, True)
-        # self.populateFields(select_npc_by_pk(self.currentPk))
+        self.spellLibraryTableWidget.setColumnHidden(0, False)
+        item = self.spellLibraryTableWidget.item(row, 0)
+        self.currentLibraryKey = item.text()
+        self.spellLibraryTableWidget.setColumnHidden(0, True)
+        
 
     def updateNpcSpellChoice(self, row, column):
-        pass
-            # self.libraryTableWidget.setColumnHidden(0, False)
-            # item = self.libraryTableWidget.item(row, 0)
-            # self.currentPk = item.text()
-            # self.libraryTableWidget.setColumnHidden(0, True)
-            # self.populateFields(select_npc_by_pk(self.currentPk))
+        self.npcSpellTableWidget.setColumnHidden(0, False)
+        item = self.npcSpellTableWidget.item(row, 0)
+        self.currentNpcSpellKey = item.text()
+        self.npcSpellTableWidget.setColumnHidden(0, True)

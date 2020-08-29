@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="sizeAdjustPolicy">
-    <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+    <enum>QAbstractScrollArea::AdjustIgnored</enum>
    </property>
    <property name="editTriggers">
     <set>QAbstractItemView::NoEditTriggers</set>
@@ -40,6 +40,11 @@
    <attribute name="horizontalHeaderStretchLastSection">
     <bool>true</bool>
    </attribute>
+   <column>
+    <property name="text">
+     <string>id</string>
+    </property>
+   </column>
    <column>
     <property name="text">
      <string>Name</string>
@@ -66,7 +71,7 @@
     </rect>
    </property>
    <property name="sizeAdjustPolicy">
-    <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+    <enum>QAbstractScrollArea::AdjustIgnored</enum>
    </property>
    <property name="editTriggers">
     <set>QAbstractItemView::NoEditTriggers</set>
@@ -89,6 +94,11 @@
    <attribute name="verticalHeaderStretchLastSection">
     <bool>false</bool>
    </attribute>
+   <column>
+    <property name="text">
+     <string>id</string>
+    </property>
+   </column>
    <column>
     <property name="text">
      <string>Name</string>
@@ -198,9 +208,43 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>spellLibraryTableWidget</sender>
+   <signal>cellClicked(int,int)</signal>
+   <receiver>npcSpell</receiver>
+   <slot>updateLibraryChoice()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>113</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>313</x>
+     <y>6</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>npcSpellTableWidget</sender>
+   <signal>cellClicked(int,int)</signal>
+   <receiver>npcSpell</receiver>
+   <slot>updateNpcSpellChoice()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>524</x>
+     <y>74</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>459</x>
+     <y>30</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addSpell()</slot>
   <slot>removeSpell()</slot>
+  <slot>updateLibraryChoice()</slot>
+  <slot>updateNpcSpellChoice()</slot>
  </slots>
 </ui>

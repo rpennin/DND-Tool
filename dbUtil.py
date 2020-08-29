@@ -336,3 +336,28 @@ def insert_spell(values):
     cur.execute(sql, values)
     conn.commit()
     conn.close()
+
+def get_spells_by_npc(npc_id):
+    npc_id = str(npc_id)
+    spellList = []
+    rows = []
+    conn = create_connection()
+    cur = conn.cursor()
+    cur.execute("SELECT spell_library_id FROM npc_spell_list WHERE npc_id=?", (npc_id,))
+    unformatted_rows = cur.fetchall()[0]
+    for row in unformatted_rows:
+        rows.append(str(row))
+    print(row)
+    print(rows)
+    if (len(rows) > 0):
+        sql = f"SELECT * FROM spell_library where id IN ({','.join(['?']*len(rows))})"
+        cur.execute(sql, (rows))
+        rows = cur.fetchall()
+        conn.close()
+        for row in rows:
+            spell = Spell(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11],row[12],row[13])
+            spellList.append(spell)
+            print(row)
+        return spellList
+    else:
+        return []
